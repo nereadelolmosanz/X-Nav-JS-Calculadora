@@ -18,7 +18,7 @@
             #calculator {
                 margin: auto;
                 border: 0.5px solid grey;
-                width: 300px;
+                width: 130px;
                 height: auto;
                 font-size: 16px;
                 background-color: #A9D0F5;
@@ -29,7 +29,7 @@
             #display {
                 margin: auto;
                 border: 0.5px solid grey;
-                width: 100px;
+                width: 80px;
                 height: 19px;
                 background-color: #EFFBFB;
             }
@@ -55,39 +55,32 @@
             <p>Nerea Del Olmo Sanz</p>
         </footer>
         <script type="text/javascript" charset="utf-8">
+            var value = null;
+
+            function changer(id,newValue){
+                var element = document.getElementById(id);
+                element.innerHTML = newValue;
+            };
+
             function one(id){
-                var op = document.getElementById(id).innerHTML;
-                if (op.length == 0 || op.length == 2){
-                    document.getElementById(id).innerHTML += "1";
-                }
+                changer(id,"1");
             };
 
             function zero(id){
-                var op = document.getElementById(id).innerHTML;
-                if (op.length == 0 || op.length == 2){
-                    document.getElementById(id).innerHTML += "0";
-                } else if (op.lenght == 5){
-                    document.getElementById(id).innerHTML = "0";
-                }
+                changer(id,"0");
             };
 
             function add(id){
-                var op = document.getElementById(id).innerHTML;
-                if (op.length == 1){
-                    document.getElementById(id).innerHTML += "+";
-                }
+                value = parseInt(document.getElementById(id).innerHTML);
+                changer(id,"+");
             };
 
             function equals(id){
-                var op = document.getElementById(id).innerHTML;
-                if (op.length == 3){
-                    var nums = op.split("+");
-                    var addition = parseInt(nums[0]) + parseInt(nums[1]);
-                    if (addition == 2){
-                        addition = 0;
-                    }
-                    document.getElementById(id).innerHTML += "=" + addition;
+                value += parseInt(document.getElementById(id).innerHTML);
+                if (value == 2){
+                    value = 0;
                 }
+                changer(id,value);
             };
 
             function clearDisplay(){
