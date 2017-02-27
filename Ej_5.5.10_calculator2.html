@@ -18,7 +18,7 @@
             #calculator {
                 margin: auto;
                 border: 0.5px solid grey;
-                width: 300px;
+                width: 130px;
                 height: auto;
                 font-size: 16px;
                 background-color: #A9D0F5;
@@ -29,7 +29,7 @@
             #display {
                 margin: auto;
                 border: 0.5px solid grey;
-                width: 100px;
+                width: 80px;
                 height: 19px;
                 background-color: #EFFBFB;
             }
@@ -66,9 +66,6 @@
                 var op = document.getElementById(id).innerHTML;
                 if (op.length == 0 || op.length == 2){
                     document.getElementById(id).innerHTML += "0";
-                } else if (op.lenght == 5){
-                    document.getElementById(id).innerHTML = "0";
-                }
             };
 
             function add(id){
